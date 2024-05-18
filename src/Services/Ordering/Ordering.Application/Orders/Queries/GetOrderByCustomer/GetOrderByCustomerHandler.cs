@@ -1,12 +1,7 @@
 ﻿using BuildingBlocks.CQRS;
-using Microsoft.EntityFrameworkCore;
 using Ordering.Application.Data;
-using Ordering.Application.DTOs;
-using Ordering.Application.Extensions;
 using Ordering.Application.Helpers;
-using Ordering.Domain.Models;
 using Ordering.Domain.ValueObjects;
-using System.Linq;
 
 namespace Ordering.Application.Orders.Queries.GetOrderByCustomer;
 

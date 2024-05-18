@@ -1,4 +1,6 @@
-﻿namespace Catalog.Api.Products.CreateProduct;
+﻿using BuildingBlocks.CQRS;
+
+namespace Catalog.Api.Products.CreateProduct;
 
 public record CreateProductCommand(
     string Name,

@@ -25,7 +25,7 @@ public class GetOrderHandler(IApplicationDbContext dbContext) :
             var orders = tempOrder
                 .Select(o => OrderHelper.CreateOrderDtoFromOrder(o, dbContext));
 
-            return new GetOrderResult(new PaginationResult<OrderDto>(
+            return new GetOrderResult(new PaginatedResult<OrderDto>(
                 pageIndex,
                 pageSize,
                 count,

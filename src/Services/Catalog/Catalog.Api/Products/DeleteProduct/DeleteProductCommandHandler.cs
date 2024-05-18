@@ -1,4 +1,5 @@
-﻿using Catalog.Api.Exceptions;
+﻿using BuildingBlocks.CQRS;
+using Catalog.Api.Exceptions;
 
 namespace Catalog.Api.Products.DeleteProduct;
 

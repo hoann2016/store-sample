@@ -1,4 +1,6 @@
-﻿namespace Catalog.Api.Products.GetProductById;
+﻿using BuildingBlocks.CQRS;
+
+namespace Catalog.Api.Products.GetProductById;
 
 public record GetProductByIdResponse(Product Product) : IQuery<GetProductByIdResult>;
 

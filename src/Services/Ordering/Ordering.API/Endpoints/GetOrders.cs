@@ -7,7 +7,7 @@ using Ordering.Application.Orders.Queries.GetOrders;
 
 namespace Ordering.API.Endpoints;
 
-public record GetOrderResponse(PaginationResult<OrderDto> Orders);
+public record GetOrderResponse(PaginatedResult<OrderDto> Orders);
 
 public class GetOrders : CarterModule
 {

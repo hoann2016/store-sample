@@ -1,4 +1,6 @@
-﻿namespace Catalog.Api.Products.DeleteProduct;
+﻿using BuildingBlocks.CQRS;
+
+namespace Catalog.Api.Products.DeleteProduct;
 
 public record DeleteProductResponse(bool IsSuccess) : ICommand<DeleteProductResult>;
 
