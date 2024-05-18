@@ -15,7 +15,7 @@ public record Address
     }
 
     private Address(string firstName, string lastName, string emailAddress, string addressLine, string country,
-        string zipCode, string state)
+        string state, string zipCode)
     {
         FirstName = firstName;
         LastName = lastName;
@@ -28,7 +28,7 @@ public record Address
 
     public static Address Of(string firstName, string lastName, string emailAddress, string addressLine,
         string country,
-        string zipCode, string state)
+        string state,string zipCode)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(firstName);
         ArgumentException.ThrowIfNullOrWhiteSpace(lastName);
@@ -38,6 +38,6 @@ public record Address
         ArgumentException.ThrowIfNullOrWhiteSpace(zipCode);
         ArgumentException.ThrowIfNullOrWhiteSpace(state);
 
-        return new Address(firstName, lastName, emailAddress, addressLine, country, zipCode, state);
+        return new Address(firstName, lastName, emailAddress, addressLine, country,state, zipCode);
     }
 }
