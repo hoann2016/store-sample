@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Exceptions\Handler\" />
+    <Folder Include="Pagination\" />
   </ItemGroup>
 
 </Project>
