@@ -10,7 +10,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/Services/Catalog/Catalog.Api/Catalog.Api.csproj", "src/Services/Catalog/Catalog.Api/"]
-COPY ["BuildingBlocks/BuildingBlocks.csproj", "BuildingBlocks/"]
+COPY ["src/BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj", "src/BuildingBlocks/BuildingBlocks/"]
 RUN dotnet restore "./src/Services/Catalog/Catalog.Api/Catalog.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Services/Catalog/Catalog.Api"

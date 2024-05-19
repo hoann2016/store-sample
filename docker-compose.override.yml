@@ -106,7 +106,7 @@ services:
           - ASPNETCORE_ENVIRONMENT=Development
           - ASPNETCORE_HTTP_PORTS=8080
           - ASPNETCORE_HTTPS_PORTS=8081
-          - ConnectionStrings__Database=Data_Source=orderdb;Port=1433;Database=OrderDb;User Id=sa;Password=Password123;Include Error Detail=true
+          - ConnectionStrings__Database=Data Source=orderdb;Initial Catalog=OrderDb;User ID=sa;Password=Password123;Trust Server Certificate=True
           - MessageBroker__Host=amqp://ecommerce-mq:5672
           - MessageBrocker__Username=guest 
           - MessageBrocker__Password=guest
@@ -117,6 +117,22 @@ services:
         ports:
           - "6003:8080"
           - "6063:8081"
+        volumes:
+          - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+          - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+    yarpapigateway:
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+          - ASPNETCORE_HTTP_PORTS=8080
+          - ASPNETCORE_HTTPS_PORTS=8081
+        depends_on:
+          - catalog.api
+          - basket.api
+          - ordering.api
+        ports:
+          - "6004:8080"
+          - "6064:8081"
         volumes:
           - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
           - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
