@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discountrgpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discountrgpc
+  template:
+      metadata:
+        labels:
+           app: discountrgpc
+      spec:
+      containers:
+      - name: discountrgpc
+        image: discountrgpc
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 6003
+          

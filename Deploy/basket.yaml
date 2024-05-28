@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basketapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: basketapi
+  template:
+    metadata:
+      labels:
+        app: basketapi
+    spec:
+      containers:
+      - name: basketapi
+        image: localhost:5000/basketapi:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: LOG_LEVEL
+          value: ASPNETCORE_ENVIRONMENT
+        - name: ASPNETCORE_HTTP_PORTS
+          value: "8080"
+        - name: ASPNETCORE_HTTPS_PORTS
+          value: "8081"
+        - name: ConnectionStrings__Database
+          value: "Server=catalogdb;Port=5432;Database=CatalogDb;User Id=postgres;Password=postgres;Include Error Detail=true"
+        - name: ConnectionStrings__Redis
+          value: "distributedcache:6379"
+        - name: MessageBroker
+          value: "amqp://192.168.68.104/rabbitmq-local"
+        - name: UserName
+          value: "guest"
+        - name: Password
+          value: "guest"
+
+        resources:
+
+        ports:
+        - containerPort: 6001
+

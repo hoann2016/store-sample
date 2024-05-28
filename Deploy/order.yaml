@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orderingapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orderingapi
+  template:
+    metadata:
+      labels:
+        app: orderingapi
+    spec:
+      containers:
+      - name: orderingapi
+        image: orderingapi
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 6002
